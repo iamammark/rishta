@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -313,25 +314,29 @@
             gap: 18px;
             padding: 8px 2px 4px;
         }
+.areaCard {
+    position: relative;
+    min-height: 290px;
+    padding: 26px;
+    border: 1px solid var(--line);
+    border-radius: var(--radiusMedium);
+    background: var(--surface);
+    box-shadow: var(--shadowCard);
+    overflow: hidden;
 
-        .areaCard {
-            position: relative;
-            min-height: 290px;
-            padding: 26px;
-            border: 1px solid var(--line);
-            border-radius: var(--radiusMedium);
-            background: var(--surface);
-            box-shadow: var(--shadowCard);
-            overflow: hidden;
-            transform: translateY(18px);
-            opacity: 0;
-            transition:
-                transform var(--transitionSmooth),
-                opacity var(--transitionSmooth),
-                box-shadow var(--transitionFast),
-                border-color var(--transitionFast);
-            backdrop-filter: blur(16px);
-        }
+    display: flex;
+    flex-direction: column;
+
+    transform: translateY(18px);
+    opacity: 0;
+    transition:
+        transform var(--transitionSmooth),
+        opacity var(--transitionSmooth),
+        box-shadow var(--transitionFast),
+        border-color var(--transitionFast);
+
+    backdrop-filter: blur(16px);
+}
 
         .areaWrapOpen .areaCard {
             transform: translateY(0);
@@ -402,6 +407,7 @@
         }
 
         .joinButton {
+                margin-top: auto;
             position: relative;
             z-index: 1;
             width: 100%;
@@ -587,17 +593,18 @@
 <body>
     <main class="page">
         <section class="intro" aria-labelledby="pageTitle">
-            <div class="eyebrow">
-                <span class="eyebrowDot" aria-hidden="true"></span>
-                Community connections
-            </div>
-
+   
             <h1 class="title" id="pageTitle">
                 <span class="titleAccent">Rishta</span>
             </h1>
+                     <div class="eyebrow">
+                <span class="eyebrowDot" aria-hidden="true"></span>
+              Authentic Matchmaking Groups
+            </div>
+
 
             <p class="subtitle">
-                Select the currently available country to explore dedicated community groups for your preferred area.
+                Select the country to explore Rishta community WhatsApp group for your preferred area.
             </p>
         </section>
 
@@ -677,7 +684,7 @@
 
                         <p class="areaText">
                             For people looking for suitable rishta connections in PECHS and DHA.
-                            Join this group if you live in or prefer these areas.
+                                <br> Join this group if you live in or prefer these areas.
                         </p>
 
                         <a
@@ -691,35 +698,7 @@
                             <span class="joinArrow" aria-hidden="true">→</span>
                         </a>
                     </article>
-
-                    <article class="areaCard">
-                        <div class="areaIcon" aria-hidden="true">
-                            <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
-                                <path d="M4 20v-9l8-6 8 6v9" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                                <path d="M9 20v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-
-                        <h2 class="areaTitle">Nazimabad and North Karachi</h2>
-
-                        <p class="areaText">
-                            For people looking for suitable rishta connections in Nazimabad and North Karachi.
-                            Join this group if you live in or prefer these areas.
-                        </p>
-
-                        <a
-                            class="joinButton"
-                            href="https://chat.whatsapp.com/DRSgwEYq9tF4jOPoZRDqmY"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            data-group="Nazimabad and North Karachi"
-                        >
-                            Join WhatsApp group
-                            <span class="joinArrow" aria-hidden="true">→</span>
-                        </a>
-                    </article>
-
-                    <article class="areaCard">
+        <article class="areaCard">
                         <div class="areaIcon" aria-hidden="true">
                             <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
                                 <path d="M4 20v-9l8-6 8 6v9" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
@@ -730,7 +709,8 @@
                         <h2 class="areaTitle">Gulshan and Jauhar</h2>
 
                         <p class="areaText">
-                            For people looking for suitable rishta connections in Gulshan and Jauhar.
+                            For people looking for suitable rishta connections in Gulshan-e-Iqbal and Gulisten-e-Jauhar.
+                            <br>
                             Join this group if you live in or prefer these areas.
                         </p>
 
@@ -745,12 +725,40 @@
                             <span class="joinArrow" aria-hidden="true">→</span>
                         </a>
                     </article>
+                    <article class="areaCard">
+                        <div class="areaIcon" aria-hidden="true">
+                            <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+                                <path d="M4 20v-9l8-6 8 6v9" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                                <path d="M9 20v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
+                        <h2 class="areaTitle">Nazimabad and North Karachi</h2>
+
+                        <p class="areaText">
+                            For people looking for suitable rishta connections in Nazimabad and North Karachi.
+                                <br> Join this group if you live in or prefer these areas.
+                        </p>
+
+                        <a
+                            class="joinButton"
+                            href="https://chat.whatsapp.com/DRSgwEYq9tF4jOPoZRDqmY"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            data-group="Nazimabad and North Karachi"
+                        >
+                            Join WhatsApp group
+                            <span class="joinArrow" aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+            
                 </div>
             </div>
         </section>
 
         <p class="hint" id="interactionHint">
-            Hover over or select Pakistan to view available area groups.
+            Click Pakistan to view available area groups.
         </p>
 
         <div class="bottomNote">
@@ -784,7 +792,7 @@
             pakistanButton.setAttribute("aria-expanded", String(open));
             interactionHint.textContent = open
                 ? "Choose your preferred area and continue to its WhatsApp group."
-                : "Hover over or select Pakistan to view available area groups.";
+                : "Click Pakistan to view available area groups.";
         }
 
         function showToast(message) {
@@ -796,17 +804,6 @@
                 toast.classList.remove("toastShow");
             }, 2600);
         }
-
-        pakistanButton.addEventListener("mouseenter", () => {
-            setAreasOpen(true);
-        });
-
-        pakistanButton.addEventListener("mouseleave", () => {
-            if (!isPinnedOpen && !areaWrap.matches(":hover")) {
-                setAreasOpen(false);
-            }
-        });
-
         pakistanButton.addEventListener("click", () => {
             isPinnedOpen = !isPinnedOpen;
             setAreasOpen(isPinnedOpen);
@@ -819,16 +816,6 @@
                     });
                 });
             }
-        });
-
-        areaWrap.addEventListener("mouseleave", () => {
-            if (!isPinnedOpen) {
-                setAreasOpen(false);
-            }
-        });
-
-        areaWrap.addEventListener("mouseenter", () => {
-            setAreasOpen(true);
         });
 
         joinButtons.forEach((button) => {
