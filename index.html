@@ -627,6 +627,161 @@
                 transition-duration: 1ms !important;
             }
         }
+
+        .submitProfileSection{
+    display:flex;
+    justify-content:center;
+    margin:28px 0 18px;
+}
+
+.submitProfileButton{
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+    width:min(520px,100%);
+    padding:18px 22px;
+
+    border:1px solid var(--line);
+    border-radius:var(--radiusMedium);
+
+    background:var(--surface);
+    backdrop-filter:blur(16px);
+
+    box-shadow:var(--shadowCard);
+
+    cursor:pointer;
+
+    transition:
+        transform var(--transitionFast),
+        box-shadow var(--transitionFast),
+        border-color var(--transitionFast);
+}
+
+.submitProfileButton:hover{
+    transform:translateY(-5px);
+    border-color:rgba(31,111,169,.25);
+    box-shadow:0 20px 50px rgba(25,79,116,.15);
+}
+
+.submitIcon{
+    font-size:34px;
+}
+
+.submitTitle{
+    font-size:20px;
+    font-weight:800;
+    color:var(--text);
+}
+
+.submitSubtitle{
+    margin-top:5px;
+    font-size:14px;
+    color:var(--muted);
+}
+
+/* Modal */
+
+.modalOverlay{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(12,25,40,.45);
+    backdrop-filter:blur(7px);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:999;
+}
+
+.modalOverlay.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.submitModal{
+
+    width:min(420px,calc(100% - 30px));
+
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(18px);
+
+    border-radius:24px;
+
+    padding:32px;
+
+    box-shadow:0 30px 80px rgba(0,0,0,.18);
+
+    text-align:center;
+
+    transform:scale(.94);
+
+    transition:.3s;
+}
+
+.modalOverlay.show .submitModal{
+    transform:scale(1);
+}
+
+.submitModal h2{
+    margin:0;
+    font-size:28px;
+    color:var(--text);
+}
+
+.submitModal p{
+    margin:12px 0 24px;
+    color:var(--muted);
+    line-height:1.6;
+}
+
+.modalButton{
+    display:block;
+
+    text-decoration:none;
+    color:#fff;
+
+    padding:16px;
+    border-radius:14px;
+
+    font-weight:700;
+
+    margin-bottom:14px;
+
+    transition:.2s;
+}
+
+.maleBtn{
+    background:linear-gradient(135deg,#1f6fa9,#2b89c8);
+}
+
+.femaleBtn{
+    background:linear-gradient(135deg,var(--accent),#1b8d59);
+}
+
+.modalButton:hover{
+    transform:translateY(-2px);
+}
+
+.closeModal{
+    margin-top:8px;
+
+    background:none;
+    border:none;
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    cursor:pointer;
+}
     </style>
 </head>
 
@@ -800,6 +955,39 @@
         <p class="hint" id="interactionHint">
             Click Pakistan to view available area groups.
         </p>
+        <!-- Submit Profile CTA -->
+<div class="submitProfileSection">
+    <button class="submitProfileButton" id="submitProfileBtn">
+        <div>
+           <div class="submitTitle">Create Your Profile</div>
+<div class="submitSubtitle">
+    Fill out the form to submit your verified Rishta profile.
+</div>
+            </div>
+        </div>
+    </button>
+</div>
+
+<div class="modalOverlay" id="submitModal">
+    <div class="submitModal">
+
+        <h2>Submit Your Profile</h2>
+        <p>Select the profile you want to submit.</p>
+
+        <a href="https://forms.gle/N5o9ZrLfhGWBR3qH8" class="modalButton maleBtn">
+            👨 Submit for Male
+        </a>
+
+        <a href="#" class="modalButton femaleBtn">
+            👩 Submit for female
+        </a>
+
+        <button class="closeModal" id="closeModal">
+            Cancel
+        </button>
+
+    </div>
+</div>
 
         <div class="bottomNote">
             <div class="supervision">
@@ -808,10 +996,13 @@
             </div>
 
             <p class="copyright">
-                Copyright © <span id="currentYear"></span> Rishta.site. All rights reserved.
+                Copyright © <span id="currentYear"></span> Rishta.world. All rights reserved.
             </p>
+            
         </div>
+        
     </main>
+    
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -878,6 +1069,30 @@
         });
 
         currentYear.textContent = new Date().getFullYear();
+
+        const submitProfileBtn = document.getElementById("submitProfileBtn");
+const submitModal = document.getElementById("submitModal");
+const closeModal = document.getElementById("closeModal");
+
+submitProfileBtn.addEventListener("click", () => {
+    submitModal.classList.add("show");
+});
+
+closeModal.addEventListener("click", () => {
+    submitModal.classList.remove("show");
+});
+
+submitModal.addEventListener("click", (e) => {
+    if (e.target === submitModal) {
+        submitModal.classList.remove("show");
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        submitModal.classList.remove("show");
+    }
+});
     </script>
 </body>
 </html>
